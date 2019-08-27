@@ -37,9 +37,9 @@ export class BodyComponent implements OnInit {
         this.filteredStatus = filteredStatus;
       });
     this.postsService.getPosts().subscribe(posts => {
-      console.log(posts[Object.keys(posts)[1]]);
-      // for(let i=0;i<posts.length;i++)
-      this.allData = posts[Object.keys(posts)[0]];
+      Object.keys(posts).forEach(key => {
+        this.allData.push(posts[key]);
+      });
       this.posts = this.allData;
     });
   }
