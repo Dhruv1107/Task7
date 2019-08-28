@@ -9,10 +9,7 @@ import { Params, ActivatedRoute } from '@angular/router';
 	styleUrls: [ './popup.component.css' ]
 })
 export class PopupComponent implements OnInit {
-	post: Posts;
-	image: string;
-	popUp: string;
-	displayPopUp: Posts[];
+	displayPopUp: Posts;
 	constructor(private postsService: PostsService, private route: ActivatedRoute) {}
 
 	ngOnInit() {
@@ -21,6 +18,11 @@ export class PopupComponent implements OnInit {
 		});
 	}
 	getPopUp(id: number) {
-		this.displayPopUp = this.postsService.addPopUp(id);
+		this.postsService.addPopUp().subscribe((posts) => {
+			Object.keys(posts).forEach((key) => {
+				console.log(id);
+				if (posts[key].id == id) this.displayPopUp = posts[key];
+			});
+		});
 	}
 }
