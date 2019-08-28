@@ -30,17 +30,20 @@ export class BodyComponent implements OnInit {
         this.posts;
       }
     });
+
     this.authService
       .returnFilteredStatus()
       .subscribe((filteredStatus: string) => {
         console.log(filteredStatus);
         this.filteredStatus = filteredStatus;
       });
+
     this.postsService.getPosts().subscribe(posts => {
       Object.keys(posts).forEach(key => {
         this.allData.push(posts[key]);
       });
       this.posts = this.allData;
+      this.postsService.setAllData(this.allData);
     });
   }
   getSourceDisplay(name): void {

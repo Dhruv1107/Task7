@@ -16,7 +16,9 @@ export class AddformComponent implements OnInit {
   ngOnInit() {}
 
   profileForm = new FormGroup({
-    id: new FormControl(POSTSDATA[POSTSDATA.length - 1].id + 1),
+    id: new FormControl(
+      this.postsService.allData[this.postsService.allData.length - 1].id + 1
+    ),
     heading: new FormControl("", Validators.required),
     date: new FormControl("", Validators.required),
     image: new FormControl("", Validators.required),
