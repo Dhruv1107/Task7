@@ -13,7 +13,7 @@ import { UnlessDirective } from "./unless.directive";
 import { PopupComponent } from "./popup/popup.component";
 import { AuthService } from "./auth.service";
 import { HttpClientModule } from "@angular/common/http";
-import { FilterPipe } from './filter.pipe';
+import { FilterContentPipe } from "./filterContent.pipe";
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { FilterPipe } from './filter.pipe';
     routingComponents,
     UnlessDirective,
     PopupComponent,
-    FilterPipe
+    FilterContentPipe
   ],
   imports: [
     BrowserModule,
