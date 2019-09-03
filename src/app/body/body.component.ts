@@ -14,7 +14,6 @@ export class BodyComponent implements OnInit {
   posts: Posts[] = [];
   allData: Posts[] = [];
   filteredStatus: string = "";
-  // @ViewChild("data", { static: false }) data;
   constructor(
     private postsService: PostsService,
     private route: ActivatedRoute,
@@ -23,7 +22,6 @@ export class BodyComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      console.log(params);
       if (params.name === "ALL") {
         this.posts = this.allData;
       } else {
@@ -46,22 +44,9 @@ export class BodyComponent implements OnInit {
       this.posts = this.allData;
       this.postsService.setAllData(this.allData);
     });
-
-    // this.authService.checkLoggedInStatus().subscribe((status: boolean) => {
-    //   console.log(status);
-    //   if (status) {
-    //     this.data.nativeElement.style.display = "block";
-    //   } else {
-    //     this.data.nativeElement.style.display = "none";
-    //   }
-    // });
   }
 
-  // ngAfterViewInit() {
-  //   this.data.nativeElement.style.display = "none";
-  // }
-
-  getSourceDisplay(name): void {
+  getSourceDisplay(name: string): void {
     this.posts = this.allData.filter(post => post.heading === name);
   }
 }

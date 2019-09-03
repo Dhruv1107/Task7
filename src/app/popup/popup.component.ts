@@ -20,8 +20,7 @@ export class PopupComponent implements OnInit {
       this.getPopUp(params.id);
     });
   }
-  getPopUp(id: number) {
+  getPopUp(id: number): void {
     this.displayPopUp = this.postsService.allData.filter(post => post.id == id);
-    console.log(this.displayPopUp[0].id);
   }
 }

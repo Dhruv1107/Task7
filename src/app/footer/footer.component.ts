@@ -6,7 +6,6 @@ import { Component } from "@angular/core";
   styleUrls: ["./footer.component.css"]
 })
 export class FooterComponent {
-  footer = "footer";
-  tagLine = "Powered by NewsAPI";
-  constructor() {}
+  footer: string = "footer";
+  tagLine: string = "Powered by NewsAPI";
 }

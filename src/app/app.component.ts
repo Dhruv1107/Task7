@@ -9,12 +9,12 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "task6";
+  title: string = "task7";
   public name: string;
   constructor(private postsService: PostsService, private router: Router) {}
-  headerChanged(event: Event) {
+  headerChanged(event: Event): void {
     this.name = (<HTMLInputElement>event.currentTarget).value;
     this.postsService.getSelectedPost(this.name);
-    this.router.navigate(["/", this.name]);
+    this.router.navigate(["news", this.name]);
   }
 }
