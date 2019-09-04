@@ -1,0 +1,11 @@
+<app-header [name]="name">
+    <button class="loginBtn" [routerLink]="['/auth']" *ngIf="!authenticateService.isLogin">
+        User Login
+    </button>
+    <button class="loginBtn" (click)="authenticateService.logout()" *ngIf="authenticateService.isLogin">
+        Log out
+    </button>
+</app-header>
+<app-form (eventClicked)="headerChanged($event)"></app-form>
+<router-outlet> </router-outlet>
+<app-footer></app-footer>
