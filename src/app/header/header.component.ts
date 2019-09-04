@@ -18,11 +18,4 @@ export class HeaderComponent {
   ) {
     this.defaultName = "ALL";
   }
-
-  logout(): void {
-    this.authenticateService.logout();
-  }
-  onLogin(): void {
-    this.router.navigate(["/auth"]);
-  }
 }

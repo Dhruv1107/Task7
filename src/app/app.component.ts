@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Posts } from "./posts";
 import { PostsService } from "./posts.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { AuthenticateService } from './authenticate.service';
 
 @Component({
   selector: "app-root",
@@ -11,7 +12,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class AppComponent {
   title: string = "task7";
   public name: string;
-  constructor(private postsService: PostsService, private router: Router) {}
+  constructor(private postsService: PostsService, private router: Router,private authenticateService:AuthenticateService) {}
   headerChanged(event: Event): void {
     this.name = (<HTMLInputElement>event.currentTarget).value;
     this.postsService.getSelectedPost(this.name);

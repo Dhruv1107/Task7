@@ -1,0 +1,7 @@
+.loginBtn {
+    position: relative;
+    left: 75vw;
+    top: 3vh;
+    z-index: 1;
+    /* color: white; */
+  }
